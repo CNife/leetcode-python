@@ -1,35 +1,16 @@
 from collections import deque
+from dataclasses import dataclass
 from typing import Optional, List
 
 
+@dataclass
 class TreeNode:
     """
     二叉树的节点。
     """
-
-    def __init__(self, val: int):
-        """
-        创建值为 val 的二叉树节点。
-
-        :param val: 节点的值
-        """
-        self.val: int = val
-        self.left: Optional[TreeNode] = None
-        self.right: Optional[TreeNode] = None
-
-    def __eq__(self, other: object) -> bool:
-        return (
-            isinstance(other, TreeNode)
-            and self.val == other.val
-            and self.left == other.left
-            and self.right == other.right
-        )
-
-    def __str__(self) -> str:
-        return f"({self.val} {self.left} {self.right})"
-
-    def __repr__(self) -> str:
-        return f"TreeNode(val={self.val}, left={self.left}, right={self.right})"
+    val: int
+    left: Optional["TreeNode"] = None
+    right: Optional["TreeNode"] = None
 
 
 def new_tree(*nums: Optional[int]) -> Optional[TreeNode]:

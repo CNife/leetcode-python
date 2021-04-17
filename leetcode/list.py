@@ -1,37 +1,17 @@
-from typing import Optional, List
+from dataclasses import dataclass
+from typing import Optional
 
 
+@dataclass
 class ListNode:
     """
     单项链表的节点。
     """
-
-    def __init__(self, val: int):
-        """
-        创建单项链表的节点。
-
-        :param val: 节点的值
-        """
-        self.val: int = val
-        self.next: Optional[ListNode] = None
-
-    def __eq__(self, o: object) -> bool:
-        return isinstance(o, ListNode) and self.val == o.val and self.next == o.next
+    val: int
+    next: Optional["ListNode"] = None
 
     def __str__(self) -> str:
         return f"{self.val}->{self.next}"
-
-    def __repr__(self):
-        return f"ListNode(val={self.val},next={self.next})"
-
-    def __getitem__(self, index: int) -> "ListNode":
-        node = self
-        for _ in range(index):
-            if node:
-                node = node.next
-            else:
-                raise IndexError("index out of range")
-        return node
 
 
 def new_list(*nums: int) -> Optional[ListNode]:
@@ -52,7 +32,8 @@ def new_list(*nums: int) -> Optional[ListNode]:
         return None
 
 
-def new_cycle_list(nums: List[int], cycle_entry_index: int) -> Optional[ListNode]:
+def new_cycle_list(nums: list[int], cycle_entry_index: int) -> Optional[
+    ListNode]:
     """
     创建有环的单项链表。
 

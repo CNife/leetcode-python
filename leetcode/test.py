@@ -7,14 +7,14 @@ console = Console()
 
 
 def test(
-    function: Callable,
-    test_cases: List[Tuple],
-    *,
-    args_func: Callable = None,
-    expect_func: Callable = None,
-    actual_func: Callable = None,
-    map_func: Callable = None,
-    equals_func: Callable = None,
+        function: Callable,
+        test_cases: List[Tuple],
+        *,
+        args_func: Callable = None,
+        expect_func: Callable = None,
+        actual_func: Callable = None,
+        map_func: Callable = None,
+        equals_func: Callable = None,
 ) -> None:
     """
     使用测例测试函数。
@@ -29,27 +29,22 @@ def test(
     :param equals_func: 判断运行结果和希望结果是否相等的函数
     """
     if args_func is None:
-
         def args_func(case):
             return case[:-1]
 
     if expect_func is None:
-
         def expect_func(case):
             return case[-1]
 
     if actual_func is None:
-
         def actual_func(_, prev_actual):
             return prev_actual
 
     if map_func is None:
-
         def map_func(item):
             return item
 
     if equals_func is None:
-
         def equals_func(lhs, rhs):
             return lhs == rhs
 
@@ -98,3 +93,18 @@ def sorted_2d_list(src: List[List[T]], **kwargs) -> List[List[T]]:
         ll.sort()
     src.sort(**kwargs)
     return src
+
+
+def sorted_equals(lhs: list[T], rhs: list[T], *args, **kwargs) -> bool:
+    """
+    按排序后的顺序，比较两个列表是否相等。
+
+    :param lhs: 列表
+    :param rhs: 列表
+    :param args: list.sort 方法参数
+    :param kwargs: list.sort 方法参数
+    :return:
+    """
+    lhs.sort(*args, **kwargs)
+    rhs.sort(*args, **kwargs)
+    return lhs == rhs
