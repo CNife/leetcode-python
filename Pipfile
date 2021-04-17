@@ -8,6 +8,7 @@ rich = "*"
 
 [dev-packages]
 black = "*"
+pydbg = "*"
 
 [requires]
 python_version = "3.9"
