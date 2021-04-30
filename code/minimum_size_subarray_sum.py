@@ -1,10 +1,7 @@
 import bisect
-from typing import List
-
-from leetcode import test
 
 
-def min_subarray_len(nums: List[int], target: int) -> int:
+def min_subarray_len(nums: list[int], target: int) -> int:
     prefix_sums = []
     result = float("Infinity")
     prefix_sum = 0
@@ -18,4 +15,6 @@ def min_subarray_len(nums: List[int], target: int) -> int:
     return 0 if result == float("Infinity") else result
 
 
-test(min_subarray_len, [([2, 3, 1, 2, 4, 3], 7, 2), ([], 100, 0)])
+if __name__ == "__main__":
+    assert min_subarray_len([2, 3, 1, 2, 4, 3], 7) == 2
+    assert min_subarray_len([], 100) == 0

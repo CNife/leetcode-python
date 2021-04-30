@@ -1,10 +1,7 @@
-import sys
-from typing import List
-
 from leetcode import TreeNode, new_tree
 
 
-def postorder_traversal(root: TreeNode) -> List[int]:
+def postorder_traversal(root: TreeNode) -> list[int]:
     stack, result = [], []
     temp = root
     while temp or stack:
@@ -19,7 +16,7 @@ def postorder_traversal(root: TreeNode) -> List[int]:
     return result
 
 
-def postorder_traversal_recursively(root: TreeNode) -> List[int]:
+def postorder_traversal_recursively(root: TreeNode) -> list[int]:
     result = []
 
     def recurse(node: TreeNode) -> None:
@@ -32,13 +29,9 @@ def postorder_traversal_recursively(root: TreeNode) -> List[int]:
     return result
 
 
-tests = [
-    new_tree(1, None, 2, 3),
-]
-for tree in tests:
-    expect = postorder_traversal_recursively(tree)
-    actual = postorder_traversal(tree)
-    if expect != actual:
-        message = f"tree: {tree}\nactual: {actual}\nexpect: {expect}"
-        print(message, file=sys.stderr)
-        sys.exit(1)
+if __name__ == "__main__":
+    trees = [
+        new_tree(1, None, 2, 3),
+    ]
+    for tree in trees:
+        assert postorder_traversal(tree) == postorder_traversal_recursively(tree)

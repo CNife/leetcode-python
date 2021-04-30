@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def has_path_sum(root: TreeNode, target: int) -> bool:
@@ -11,7 +11,8 @@ def has_path_sum(root: TreeNode, target: int) -> bool:
     )
 
 
-test(
-    has_path_sum,
-    [(new_tree(5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1), 22, True)],
-)
+if __name__ == "__main__":
+    assert (
+        has_path_sum(new_tree(5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1), 22)
+        is True
+    )

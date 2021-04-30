@@ -1,11 +1,7 @@
-from typing import List
-
-from leetcode import test
-
 _INDEX_OFFSETS = ((-1, 0), (1, 0), (0, -1), (0, 1))
 
 
-def exist(board: List[List[str]], word: str) -> bool:
+def exist(board: list[list[str]], word: str) -> bool:
     m, n = len(board), len(board[0])
     visited = [[False] * n for _ in range(m)]
 
@@ -38,24 +34,20 @@ def exist(board: List[List[str]], word: str) -> bool:
     return False
 
 
-# noinspection SpellCheckingInspection
-test(
-    exist,
-    [
-        (
-            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
-            "ABCCED",
-            True,
-        ),
-        (
-            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
-            "SEE",
-            True,
-        ),
-        (
-            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
-            "ABCB",
-            False,
-        ),
-    ],
-)
+if __name__ == "__main__":
+    assert (
+        exist(
+            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCCED"
+        )
+        is True
+    )
+    assert (
+        exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "SEE")
+        is True
+    )
+    assert (
+        exist(
+            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCB"
+        )
+        is False
+    )

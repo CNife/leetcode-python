@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def unique_paths_with_obstacles(grid: List[List[int]]) -> int:
+def unique_paths_with_obstacles(grid: list[list[int]]) -> int:
     if not (grid and grid[0]):
         return 0
 
@@ -30,7 +25,7 @@ def unique_paths_with_obstacles(grid: List[List[int]]) -> int:
     return dp[n - 1]
 
 
-# def unique_paths_with_obstacles(grid: List[List[int]]) -> int:
+# def unique_paths_with_obstacles(grid: list[list[int]]) -> int:
 #     if not (grid and grid[0]):
 #         return 0
 #
@@ -60,5 +55,5 @@ def unique_paths_with_obstacles(grid: List[List[int]]) -> int:
 #             dp[i][j] = left + up
 #     return dp[m - 1][n - 1]
 
-
-test(unique_paths_with_obstacles, [([[0, 0, 0], [0, 1, 0], [0, 0, 0]], 2)])
+if __name__ == "__main__":
+    assert unique_paths_with_obstacles([[0, 0, 0], [0, 1, 0], [0, 0, 0]]) == 2

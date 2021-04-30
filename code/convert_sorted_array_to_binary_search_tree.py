@@ -1,9 +1,9 @@
-from typing import List, Optional
+from typing import Optional
 
-from leetcode import TreeNode, test, is_valid_avl
+from leetcode import TreeNode, is_valid_avl
 
 
-def sorted_array_to_bst(nums: List[int]) -> Optional[TreeNode]:
+def sorted_array_to_bst(nums: list[int]) -> Optional[TreeNode]:
     if not nums:
         return None
 
@@ -14,10 +14,5 @@ def sorted_array_to_bst(nums: List[int]) -> Optional[TreeNode]:
     return root
 
 
-test(
-    sorted_array_to_bst,
-    [
-        ([-10, -3, 0, 5, 9], None),
-    ],
-    equals_func=lambda root, _: is_valid_avl(root),
-)
+if __name__ == "__main__":
+    assert is_valid_avl(sorted_array_to_bst([-10, -3, 0, 5, 9]))

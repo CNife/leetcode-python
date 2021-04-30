@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def find_length(a: List[int], b: List[int]) -> int:
+def find_length(a: list[int], b: list[int]) -> int:
     dp = [0] * (len(b) + 1)
     result = 0
     for i in range(1, len(a) + 1):
@@ -16,4 +11,5 @@ def find_length(a: List[int], b: List[int]) -> int:
     return result
 
 
-test(find_length, [([1, 2, 3, 2, 1], [3, 2, 1, 4, 7], 3)])
+if __name__ == "__main__":
+    assert find_length([1, 2, 3, 2, 1], [3, 2, 1, 4, 7]) == 3

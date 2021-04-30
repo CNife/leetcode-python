@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def is_balanced(root: TreeNode) -> bool:
@@ -12,10 +12,6 @@ def is_balanced(root: TreeNode) -> bool:
     return -1 <= left_height - right_height <= 1
 
 
-test(
-    is_balanced,
-    [
-        (new_tree(3, 9, 20, None, None, 15, 7), True),
-        (new_tree(1, 2, 2, 3, 3, None, None, 4, 4), False),
-    ],
-)
+if __name__ == "__main__":
+    assert is_balanced(new_tree(3, 9, 20, None, None, 15, 7)) is True
+    assert is_balanced(new_tree(1, 2, 2, 3, 3, None, None, 4, 4)) is False

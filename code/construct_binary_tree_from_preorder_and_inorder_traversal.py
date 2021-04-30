@@ -1,9 +1,9 @@
-from typing import List, Optional
+from typing import Optional
 
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
-def build_tree(preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+def build_tree(preorder: list[int], inorder: list[int]) -> Optional[TreeNode]:
     if not inorder:
         return None
     mid = inorder.index(preorder[0])
@@ -14,7 +14,11 @@ def build_tree(preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
     return root
 
 
-test(
-    build_tree,
-    [([3, 9, 20, 15, 7], [9, 3, 15, 20, 7], new_tree(3, 9, 20, None, None, 15, 7))],
-)
+if __name__ == "__main__":
+    assert (
+        build_tree(
+            [3, 9, 20, 15, 7],
+            [9, 3, 15, 20, 7],
+        )
+        == new_tree(3, 9, 20, None, None, 15, 7)
+    )

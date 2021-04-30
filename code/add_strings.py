@@ -1,7 +1,5 @@
 import itertools
 
-from leetcode import test
-
 
 def add_strings(left: str, right: str) -> str:
     def char2int(ch: str):
@@ -30,7 +28,8 @@ def add_strings(left: str, right: str) -> str:
     return "".join(int2char(digit) for digit in reversed(result))
 
 
-test(
-    add_strings,
-    [("0", "0", "0"), ("10", "90", "100"), ("9999", "2", "10001"), ("408", "5", "413")],
-)
+if __name__ == "__main__":
+    assert add_strings("0", "0") == "0"
+    assert add_strings("10", "90") == "100"
+    assert add_strings("9999", "2") == "10001"
+    assert add_strings("408", "5") == "413"

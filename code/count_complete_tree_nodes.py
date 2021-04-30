@@ -1,6 +1,6 @@
 from collections import deque
 
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def count_nodes(root: TreeNode) -> int:
@@ -22,11 +22,7 @@ def count_nodes(root: TreeNode) -> int:
                 queue.append(node.right)
 
 
-test(
-    count_nodes,
-    [
-        (new_tree(1, 2, 3, 4, 5, 6), 6),
-        (None, 0),
-        (new_tree(1), 1),
-    ],
-)
+if __name__ == "__main__":
+    assert count_nodes(new_tree(1, 2, 3, 4, 5, 6)) == 6
+    assert count_nodes(new_tree()) == 0
+    assert count_nodes(new_tree(1)) == 1

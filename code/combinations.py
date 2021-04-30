@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import test, sorted_list
+from leetcode import sorted_2d_equals
 
 
-def combine(n: int, k: int) -> List[List[int]]:
+def combine(n: int, k: int) -> list[list[int]]:
     result, stack = [], []
 
     def backtrack(start: int) -> None:
@@ -20,10 +18,11 @@ def combine(n: int, k: int) -> List[List[int]]:
     return result
 
 
-test(
-    combine,
-    [
-        (4, 2, [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]]),
-    ],
-    map_func=sorted_list,
-)
+if __name__ == "__main__":
+    assert sorted_2d_equals(
+        combine(
+            4,
+            2,
+        ),
+        [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]],
+    )

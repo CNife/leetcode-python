@@ -1,4 +1,4 @@
-from leetcode import ListNode, test, new_list
+from leetcode import ListNode, new_list
 
 
 def reverse_group(head: ListNode, k: int) -> ListNode:
@@ -35,10 +35,6 @@ def reverse_list(head: ListNode) -> ListNode:
     return prev
 
 
-test(
-    reverse_group,
-    [
-        (new_list(1, 2, 3, 4, 5), 2, new_list(2, 1, 4, 3, 5)),
-        (new_list(1, 2, 3, 4, 5), 3, new_list(3, 2, 1, 4, 5)),
-    ],
-)
+if __name__ == "__main__":
+    assert reverse_group(new_list(1, 2, 3, 4, 5), 2) == new_list(2, 1, 4, 3, 5)
+    assert reverse_group(new_list(1, 2, 3, 4, 5), 3) == new_list(3, 2, 1, 4, 5)

@@ -1,6 +1,3 @@
-from leetcode import test
-
-
 def is_valid(s: str) -> bool:
     stack = []
     for ch in s:
@@ -15,15 +12,11 @@ def is_valid(s: str) -> bool:
     return not stack
 
 
-test(
-    is_valid,
-    [
-        ("", True),
-        ("()", True),
-        ("()[]{}", True),
-        ("(]", False),
-        ("([)]", False),
-        ("{[()]}", True),
-        ("]", False),
-    ],
-)
+if __name__ == "__main__":
+    assert is_valid("") is True
+    assert is_valid("()") is True
+    assert is_valid("()[]{}") is True
+    assert is_valid("(]") is False
+    assert is_valid("([)]") is False
+    assert is_valid("{[()]}") is True
+    assert is_valid("]") is False

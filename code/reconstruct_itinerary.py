@@ -1,12 +1,9 @@
 import heapq
 from collections import defaultdict
-from typing import List
-
-from leetcode import test
 
 
 # 递归 DFS
-def find_itinerary(tickets: List[List[int]]) -> List[str]:
+def find_itinerary(tickets: list[list[int]]) -> list[str]:
     result = []
     if not tickets:
         return result
@@ -29,22 +26,19 @@ def find_itinerary(tickets: List[List[int]]) -> List[str]:
     return result
 
 
-test(
-    find_itinerary,
-    [
-        (
-            [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]],
-            ["JFK", "MUC", "LHR", "SFO", "SJC"],
-        ),
-        (
+if __name__ == "__main__":
+    assert find_itinerary(
+        [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
+    ) == ["JFK", "MUC", "LHR", "SFO", "SJC"]
+    assert (
+        find_itinerary(
             [
                 ["JFK", "SFO"],
                 ["JFK", "ATL"],
                 ["SFO", "ATL"],
                 ["ATL", "JFK"],
                 ["ATL", "SFO"],
-            ],
-            ["JFK", "ATL", "JFK", "SFO", "ATL", "SFO"],
-        ),
-    ],
-)
+            ]
+        )
+        == ["JFK", "ATL", "JFK", "SFO", "ATL", "SFO"]
+    )

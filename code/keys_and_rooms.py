@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def can_visit_all_rooms(rooms: List[List[int]]) -> bool:
+def can_visit_all_rooms(rooms: list[list[int]]) -> bool:
     visited = [False] * len(rooms)
 
     def dfs(i: int) -> None:
@@ -18,11 +13,7 @@ def can_visit_all_rooms(rooms: List[List[int]]) -> bool:
     return all(v for v in visited)
 
 
-test(
-    can_visit_all_rooms,
-    [
-        ([[1], [2], [3], []], True),
-        ([[1, 3], [3, 0, 1], [2], [0]], False),
-        ([[]], True),
-    ],
-)
+if __name__ == "__main__":
+    assert can_visit_all_rooms([[1], [2], [3], []]) is True
+    assert can_visit_all_rooms([[1, 3], [3, 0, 1], [2], [0]]) is False
+    assert can_visit_all_rooms([[]]) is True

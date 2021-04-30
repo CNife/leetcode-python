@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def predicate_the_winner(nums: List[int]) -> bool:
+def predicate_the_winner(nums: list[int]) -> bool:
     dp = [[-1] * 21 for _ in range(21)]
 
     def range_sum(start: int, end: int) -> int:
@@ -24,10 +19,6 @@ def predicate_the_winner(nums: List[int]) -> bool:
     return dfs(1, len(nums)) * 2 >= range_sum(1, len(nums))
 
 
-test(
-    predicate_the_winner,
-    [
-        ([1, 5, 2], False),
-        ([1, 5, 233, 7], True),
-    ],
-)
+if __name__ == "__main__":
+    assert predicate_the_winner([1, 5, 2]) is False
+    assert predicate_the_winner([1, 5, 233, 7]) is True

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def merge_trees(lhs: Optional[TreeNode], rhs: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -17,13 +17,7 @@ def merge_trees(lhs: Optional[TreeNode], rhs: Optional[TreeNode]) -> Optional[Tr
         return None
 
 
-test(
-    merge_trees,
-    [
-        (
-            new_tree(1, 3, 2, 5),
-            new_tree(2, 1, 3, None, 4, None, 7),
-            new_tree(3, 4, 5, 5, 4, None, 7),
-        )
-    ],
-)
+if __name__ == "__main__":
+    assert merge_trees(
+        new_tree(1, 3, 2, 5), new_tree(2, 1, 3, None, 4, None, 7)
+    ) == new_tree(3, 4, 5, 5, 4, None, 7)

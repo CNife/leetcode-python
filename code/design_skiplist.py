@@ -57,13 +57,14 @@ class Node:
     down: Optional["Node"]
 
 
-sl = SkipList()
-sl.add(1)
-sl.add(2)
-sl.add(3)
-assert sl.search(0) is False
-sl.add(4)
-assert sl.search(1) is True
-assert sl.erase(0) is False
-assert sl.erase(1) is True
-assert sl.search(1) is False
+if __name__ == "__main__":
+    sl = SkipList()
+    sl.add(1)
+    sl.add(2)
+    sl.add(3)
+    assert sl.search(0) is False
+    sl.add(4)
+    assert sl.search(1) is True
+    assert sl.erase(0) is False
+    assert sl.erase(1) is True
+    assert sl.search(1) is False

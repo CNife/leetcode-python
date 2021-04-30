@@ -1,6 +1,3 @@
-from leetcode import test
-
-
 def count_binary_substrings(s: str) -> int:
     result = 0
     for i in range(1, len(s)):
@@ -20,10 +17,6 @@ def count_binary_substrings(s: str) -> int:
     return result
 
 
-test(
-    count_binary_substrings,
-    [
-        ("00110011", 6),
-        ("10101", 4),
-    ],
-)
+if __name__ == "__main__":
+    assert count_binary_substrings("00110011") == 6
+    assert count_binary_substrings("10101") == 4

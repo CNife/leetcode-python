@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def diving_board(shorter: int, longer: int, k: int) -> List[int]:
+def diving_board(shorter: int, longer: int, k: int) -> list[int]:
     if k == 0:
         return []
     if shorter == longer:
@@ -18,11 +13,7 @@ def diving_board(shorter: int, longer: int, k: int) -> List[int]:
     return result
 
 
-test(
-    diving_board,
-    [
-        (1, 2, 3, [3, 4, 5, 6]),
-        (1, 1, 0, []),
-        (1, 1, 2, [2]),
-    ],
-)
+if __name__ == "__main__":
+    assert diving_board(1, 2, 3) == [3, 4, 5, 6]
+    assert diving_board(1, 1, 0) == []
+    assert diving_board(1, 1, 2) == [2]

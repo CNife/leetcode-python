@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def reverse_pairs(nums: List[int]) -> int:
+def reverse_pairs(nums: list[int]) -> int:
     result = 0
 
     def merge(start: int, end: int) -> None:
@@ -37,9 +32,5 @@ def reverse_pairs(nums: List[int]) -> int:
     return result
 
 
-test(
-    reverse_pairs,
-    [
-        ([7, 5, 6, 4], 5),
-    ],
-)
+if __name__ == "__main__":
+    assert reverse_pairs([7, 5, 6, 4]) == 5

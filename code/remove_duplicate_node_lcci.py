@@ -1,4 +1,4 @@
-from leetcode import ListNode, test, new_list
+from leetcode import ListNode, new_list
 
 
 def remove_duplicate_nodes(head: ListNode) -> ListNode:
@@ -14,10 +14,6 @@ def remove_duplicate_nodes(head: ListNode) -> ListNode:
     return head
 
 
-test(
-    remove_duplicate_nodes,
-    [
-        (new_list(1, 2, 3, 3, 2, 1), new_list(1, 2, 3)),
-        (new_list(1, 1, 1, 2), new_list(1, 2)),
-    ],
-)
+if __name__ == "__main__":
+    assert remove_duplicate_nodes(new_list(1, 2, 3, 3, 2, 1)) == new_list(1, 2, 3)
+    assert remove_duplicate_nodes(new_list(1, 1, 1, 2)) == new_list(1, 2)

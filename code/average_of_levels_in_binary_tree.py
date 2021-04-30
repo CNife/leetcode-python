@@ -1,12 +1,11 @@
 from collections import deque
 from itertools import zip_longest
 from math import isclose
-from typing import List
 
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
-def average_of_levels(root: TreeNode) -> List[float]:
+def average_of_levels(root: TreeNode) -> list[float]:
     if not root:
         return []
 
@@ -28,13 +27,14 @@ def average_of_levels(root: TreeNode) -> List[float]:
     return result
 
 
-test(
-    average_of_levels,
-    [
+if __name__ == "__main__":
+    tests = [
         (new_tree(3, 9, 20, None, None, 15, 7), [3, 14.5, 11]),
-    ],
-    equals_func=lambda lhs, rhs: all(
-        isclose(left, right)
-        for left, right in zip_longest(lhs, rhs, fillvalue=float("nan"))
-    ),
-)
+    ]
+    for tree, want in tests:
+        assert all(
+            isclose(lhs, rhs)
+            for lhs, rhs in zip_longest(
+                average_of_levels(tree), want, fillvalue=float("NaN")
+            )
+        )

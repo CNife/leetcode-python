@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import TreeNode, new_tree, test
+from leetcode import TreeNode, new_tree
 
 
-def inorder_traversal(root: TreeNode) -> List[int]:
+def inorder_traversal(root: TreeNode) -> list[int]:
     stack, result = [], []
 
     def push_node(node: TreeNode) -> None:
@@ -19,9 +17,5 @@ def inorder_traversal(root: TreeNode) -> List[int]:
     return result
 
 
-test(
-    inorder_traversal,
-    [
-        (new_tree(1, None, 2, 3), [1, 3, 2]),
-    ],
-)
+if __name__ == "__main__":
+    assert inorder_traversal(new_tree(1, None, 2, 3)) == [1, 3, 2]

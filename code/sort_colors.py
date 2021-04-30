@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def sort_colors(nums: List[int]) -> None:
+def sort_colors(nums: list[int]) -> None:
     i, m, n = 0, 0, len(nums) - 1
     while i <= n:
         if nums[i] == 0:
@@ -18,10 +13,10 @@ def sort_colors(nums: List[int]) -> None:
         i += 1
 
 
-test(
-    sort_colors,
-    [
+if __name__ == "__main__":
+    tests = [
         ([2, 0, 2, 1, 1, 0], [0, 0, 1, 1, 2, 2]),
-    ],
-    actual_func=lambda t, _: t[1],
-)
+    ]
+    for nums, want in tests:
+        sort_colors(nums)
+        assert nums == want

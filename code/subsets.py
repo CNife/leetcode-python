@@ -1,12 +1,10 @@
-from typing import List
-
-from leetcode import test, sorted_2d_list
+from leetcode import sorted_2d_equals
 
 
-def subsets(nums: List[int]) -> List[List[int]]:
+def subsets(nums: list[int]) -> list[list[int]]:
     result = []
 
-    def inner(src: List[int], current: List[int]) -> None:
+    def inner(src: list[int], current: list[int]) -> None:
         if src:
             inner(src[1:], list(current))
             current.append(src[0])
@@ -18,8 +16,7 @@ def subsets(nums: List[int]) -> List[List[int]]:
     return result
 
 
-test(
-    subsets,
-    [([1, 2, 3], [[3], [1], [2], [1, 2, 3], [1, 3], [2, 3], [1, 2], []])],
-    map_func=sorted_2d_list,
-)
+if __name__ == "__main__":
+    assert sorted_2d_equals(
+        subsets([1, 2, 3]), [[3], [1], [2], [1, 2, 3], [1, 3], [2, 3], [1, 2], []]
+    )

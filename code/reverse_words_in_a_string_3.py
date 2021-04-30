@@ -1,6 +1,3 @@
-from leetcode import test
-
-
 def reverse_words(s: str) -> str:
     words = []
     for word in s.split(" "):
@@ -9,10 +6,5 @@ def reverse_words(s: str) -> str:
     return " ".join(words)
 
 
-# noinspection SpellCheckingInspection
-test(
-    reverse_words,
-    [
-        ("Let's take LeetCode contest", "s'teL ekat edoCteeL tsetnoc"),
-    ],
-)
+if __name__ == "__main__":
+    assert reverse_words("Let's take LeetCode contest") == "s'teL ekat edoCteeL tsetnoc"

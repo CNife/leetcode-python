@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def min_depth(root: TreeNode) -> int:
@@ -17,10 +17,6 @@ def min_depth(root: TreeNode) -> int:
     return inner(root)
 
 
-test(
-    min_depth,
-    [
-        (new_tree(3, 9, 20, None, None, 15, 7), 2),
-        (new_tree(1, 2), 2),
-    ],
-)
+if __name__ == "__main__":
+    assert min_depth(new_tree(3, 9, 20, None, None, 15, 7)) == 2
+    assert min_depth(new_tree(1, 2)) == 2

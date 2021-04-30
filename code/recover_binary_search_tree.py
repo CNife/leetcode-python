@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def recover_tree(root: TreeNode) -> None:
@@ -24,12 +24,12 @@ def recover_tree(root: TreeNode) -> None:
     first_error.val, second_error.val = second_error.val, first_error.val
 
 
-test(
-    recover_tree,
-    [
+if __name__ == "__main__":
+    tests = [
         (new_tree(1, 3, None, None, 2), new_tree(3, 1, None, None, 2)),
         (new_tree(3, 1, 4, None, None, 2), new_tree(2, 1, 4, None, None, 3)),
         (new_tree(5, 3, 9, -2147483648, 2), new_tree(5, 2, 9, -2147483648, 3)),
-    ],
-    actual_func=lambda case, _: case[0],
-)
+    ]
+    for root, want in tests:
+        recover_tree(root)
+        assert root == want

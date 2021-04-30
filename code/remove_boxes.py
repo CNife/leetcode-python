@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def remove_boxes(boxes: List[int]) -> int:
+def remove_boxes(boxes: list[int]) -> int:
     dp = [[[0] * 100 for _ in range(100)] for _ in range(100)]
 
     def calc(left: int, right: int, k: int) -> int:
@@ -26,9 +21,5 @@ def remove_boxes(boxes: List[int]) -> int:
     return calc(0, len(boxes) - 1, 0)
 
 
-test(
-    remove_boxes,
-    [
-        ([1, 3, 2, 2, 2, 3, 4, 3, 1], 23),
-    ],
-)
+if __name__ == "__main__":
+    assert remove_boxes([1, 3, 2, 2, 2, 3, 4, 3, 1]) == 23

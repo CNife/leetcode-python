@@ -7,6 +7,7 @@ class ListNode:
     """
     单项链表的节点。
     """
+
     val: int
     next: Optional["ListNode"] = None
 
@@ -32,8 +33,7 @@ def new_list(*nums: int) -> Optional[ListNode]:
         return None
 
 
-def new_cycle_list(nums: list[int], cycle_entry_index: int) -> Optional[
-    ListNode]:
+def new_cycle_list(nums: list[int], cycle_entry_index: int) -> Optional[ListNode]:
     """
     创建有环的单项链表。
 

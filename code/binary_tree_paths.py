@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import TreeNode, test, new_tree, sorted_list
+from leetcode import TreeNode, new_tree, sorted_equals
 
 
-def binary_tree_path(root: TreeNode) -> List[str]:
+def binary_tree_path(root: TreeNode) -> list[str]:
     if not root:
         return []
 
@@ -26,10 +24,9 @@ def binary_tree_path(root: TreeNode) -> List[str]:
     return ["->".join(str(val) for val in result) for result in results]
 
 
-test(
-    binary_tree_path,
-    [
+if __name__ == "__main__":
+    tests = [
         (new_tree(1, 2, 3, None, 5), ["1->2->5", "1->3"]),
-    ],
-    map_func=sorted_list,
-)
+    ]
+    for root, want in tests:
+        assert sorted_equals(binary_tree_path(root), want)

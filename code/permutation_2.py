@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import test, sorted_list
+from leetcode.test import sorted_equals
 
 
-def permute_unique(nums: List[int]) -> List[List[int]]:
+def permute_unique(nums: list[int]) -> list[list[int]]:
     nums.sort()
     used, path, result = [False] * len(nums), [], []
 
@@ -28,8 +26,5 @@ def permute_unique(nums: List[int]) -> List[List[int]]:
     return result
 
 
-test(
-    permute_unique,
-    [([1, 1, 2], [[1, 1, 2], [1, 2, 1], [2, 1, 1]])],
-    map_func=sorted_list,
-)
+if __name__ == "__main__":
+    assert sorted_equals(permute_unique([1, 1, 2]), [[1, 1, 2], [1, 2, 1], [2, 1, 1]])

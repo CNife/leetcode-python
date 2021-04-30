@@ -1,6 +1,6 @@
 from typing import Optional
 
-from leetcode import ListNode, TreeNode, test, new_list, is_valid_avl
+from leetcode import ListNode, TreeNode, new_list, is_valid_avl
 
 
 def sorted_list_to_bst(head: Optional[ListNode]) -> Optional[TreeNode]:
@@ -31,11 +31,6 @@ def list_length(list_head: Optional[ListNode]) -> int:
     return length
 
 
-test(
-    sorted_list_to_bst,
-    [
-        (new_list(-10, 3, 0, 5, 9), None),
-        (new_list(), None),
-    ],
-    equals_func=lambda root, _: is_valid_avl(root),
-)
+if __name__ == "__main__":
+    assert is_valid_avl(sorted_list_to_bst(new_list(-10, 3, 0, 5, 9)))
+    assert is_valid_avl(sorted_list_to_bst(new_list()))

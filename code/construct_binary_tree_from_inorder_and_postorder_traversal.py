@@ -1,10 +1,10 @@
-from typing import List, Optional
+from typing import Optional
 
-from leetcode import TreeNode, new_tree, test
+from leetcode import TreeNode, new_tree
 
 
-def build_tree(inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
-    def helper(in_order: List[int], post_order: List[int]) -> Optional[TreeNode]:
+def build_tree(inorder: list[int], postorder: list[int]) -> Optional[TreeNode]:
+    def helper(in_order: list[int], post_order: list[int]) -> Optional[TreeNode]:
         if in_order and post_order:
             root_val = post_order[-1]
             for root_offset, val in enumerate(in_order):
@@ -21,9 +21,11 @@ def build_tree(inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
     return helper(inorder, postorder)
 
 
-test(
-    build_tree,
-    [
-        ([9, 3, 15, 20, 7], [9, 15, 7, 20, 3], new_tree(3, 9, 20, None, None, 15, 7)),
-    ],
-)
+if __name__ == "__main__":
+    assert (
+        build_tree(
+            [9, 3, 15, 20, 7],
+            [9, 15, 7, 20, 3],
+        )
+        == new_tree(3, 9, 20, None, None, 15, 7)
+    )

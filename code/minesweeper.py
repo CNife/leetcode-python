@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def update_board(board: List[List[str]], click: List[int]) -> List[List[str]]:
+def update_board(board: list[list[str]], click: list[int]) -> list[list[str]]:
     m, n = len(board), len(board[0])
 
     def update(x: int, y: int) -> None:
@@ -33,38 +28,32 @@ def update_board(board: List[List[str]], click: List[int]) -> List[List[str]]:
     return board
 
 
-test(
-    update_board,
-    [
-        (
-            [
-                ["E", "E", "E", "E", "E"],
-                ["E", "E", "M", "E", "E"],
-                ["E", "E", "E", "E", "E"],
-                ["E", "E", "E", "E", "E"],
-            ],
-            [3, 0],
-            [
-                ["B", "1", "E", "1", "B"],
-                ["B", "1", "M", "1", "B"],
-                ["B", "1", "1", "1", "B"],
-                ["B", "B", "B", "B", "B"],
-            ],
-        ),
-        (
-            [
-                ["B", "1", "E", "1", "B"],
-                ["B", "1", "M", "1", "B"],
-                ["B", "1", "1", "1", "B"],
-                ["B", "B", "B", "B", "B"],
-            ],
-            [1, 2],
-            [
-                ["B", "1", "E", "1", "B"],
-                ["B", "1", "X", "1", "B"],
-                ["B", "1", "1", "1", "B"],
-                ["B", "B", "B", "B", "B"],
-            ],
-        ),
-    ],
-)
+if __name__ == "__main__":
+    assert update_board(
+        [
+            ["E", "E", "E", "E", "E"],
+            ["E", "E", "M", "E", "E"],
+            ["E", "E", "E", "E", "E"],
+            ["E", "E", "E", "E", "E"],
+        ],
+        [3, 0],
+    ) == [
+        ["B", "1", "E", "1", "B"],
+        ["B", "1", "M", "1", "B"],
+        ["B", "1", "1", "1", "B"],
+        ["B", "B", "B", "B", "B"],
+    ]
+    assert update_board(
+        [
+            ["B", "1", "E", "1", "B"],
+            ["B", "1", "M", "1", "B"],
+            ["B", "1", "1", "1", "B"],
+            ["B", "B", "B", "B", "B"],
+        ],
+        [1, 2],
+    ) == [
+        ["B", "1", "E", "1", "B"],
+        ["B", "1", "X", "1", "B"],
+        ["B", "1", "1", "1", "B"],
+        ["B", "B", "B", "B", "B"],
+    ]

@@ -13,14 +13,15 @@ class CQueue:
         return self.output_stack.pop() if self.output_stack else -1
 
 
-q1 = CQueue()
-q1.append_tail(3)
-assert q1.delete_head() == 3
-assert q1.delete_head() == -1
+if __name__ == "__main__":
+    q1 = CQueue()
+    q1.append_tail(3)
+    assert q1.delete_head() == 3
+    assert q1.delete_head() == -1
 
-q2 = CQueue()
-assert q2.delete_head() == -1
-q2.append_tail(5)
-q2.append_tail(2)
-assert q2.delete_head() == 5
-assert q2.delete_head() == 2
+    q2 = CQueue()
+    assert q2.delete_head() == -1
+    q2.append_tail(5)
+    q2.append_tail(2)
+    assert q2.delete_head() == 5
+    assert q2.delete_head() == 2

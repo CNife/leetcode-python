@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test, sorted_list
-
-
-def letter_combinations(digits: str) -> List[str]:
+def letter_combinations(digits: str) -> list[str]:
     result = []
     digits = [ord(ch) - ord("0") for ch in digits]
 
@@ -24,43 +19,45 @@ def letter_combinations(digits: str) -> List[str]:
 LETTER_TABLE = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
 
 # noinspection SpellCheckingInspection
-test(
-    letter_combinations,
-    [
-        ("23", ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
-        ("2184", []),
-        (
-            "284",
-            [
-                "atg",
-                "ath",
-                "ati",
-                "aug",
-                "auh",
-                "aui",
-                "avg",
-                "avh",
-                "avi",
-                "btg",
-                "bth",
-                "bti",
-                "bug",
-                "buh",
-                "bui",
-                "bvg",
-                "bvh",
-                "bvi",
-                "ctg",
-                "cth",
-                "cti",
-                "cug",
-                "cuh",
-                "cui",
-                "cvg",
-                "cvh",
-                "cvi",
-            ],
-        ),
-    ],
-    map_func=sorted_list,
-)
+if __name__ == "__main__":
+    assert letter_combinations("23") == [
+        "ad",
+        "ae",
+        "af",
+        "bd",
+        "be",
+        "bf",
+        "cd",
+        "ce",
+        "cf",
+    ]
+    assert letter_combinations("2184") == []
+    assert letter_combinations("284") == [
+        "atg",
+        "ath",
+        "ati",
+        "aug",
+        "auh",
+        "aui",
+        "avg",
+        "avh",
+        "avi",
+        "btg",
+        "bth",
+        "bti",
+        "bug",
+        "buh",
+        "bui",
+        "bvg",
+        "bvh",
+        "bvi",
+        "ctg",
+        "cth",
+        "cti",
+        "cug",
+        "cuh",
+        "cui",
+        "cvg",
+        "cvh",
+        "cvi",
+    ]

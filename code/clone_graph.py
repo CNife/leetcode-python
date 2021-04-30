@@ -1,8 +1,8 @@
-from typing import List, Dict, Optional
+from typing import Optional
 
 
 class Node:
-    def __init__(self, val: int = 0, neighbors: List["Node"] = None):
+    def __init__(self, val: int = 0, neighbors: list["Node"] = None):
         self.val = val
         self.neighbors = neighbors if neighbors else []
 
@@ -14,7 +14,7 @@ def clone_graph(node: Optional[Node]) -> Optional[Node]:
     if node is None:
         return node
 
-    cloned: Dict[int, Node] = {}
+    cloned: dict[int, Node] = {}
 
     def clone_node(old: Node) -> Node:
         new = Node(old.val)
@@ -31,11 +31,12 @@ def clone_graph(node: Optional[Node]) -> Optional[Node]:
     return result
 
 
-src_nodes = [Node(i + 1) for i in range(4)]
-src_nodes[0].neighbors.extend([src_nodes[1], src_nodes[3]])
-src_nodes[1].neighbors.extend([src_nodes[0], src_nodes[2]])
-src_nodes[2].neighbors.extend([src_nodes[1], src_nodes[3]])
-src_nodes[3].neighbors.extend([src_nodes[0], src_nodes[2]])
+if __name__ == "__main__":
+    src_nodes = [Node(i + 1) for i in range(4)]
+    src_nodes[0].neighbors.extend([src_nodes[1], src_nodes[3]])
+    src_nodes[1].neighbors.extend([src_nodes[0], src_nodes[2]])
+    src_nodes[2].neighbors.extend([src_nodes[1], src_nodes[3]])
+    src_nodes[3].neighbors.extend([src_nodes[0], src_nodes[2]])
 
-got = clone_graph(src_nodes[0])
-# print(src_nodes, got)
+    got = clone_graph(src_nodes[0])
+    # print(src_nodes, got)

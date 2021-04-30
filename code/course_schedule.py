@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def can_finish(node_count: int, edges: List[List[int]]) -> bool:
+def can_finish(node_count: int, edges: list[list[int]]) -> bool:
     graph = [[] for _ in range(node_count)]
     in_degrees = [0] * node_count
     for edge in edges:
@@ -23,10 +18,6 @@ def can_finish(node_count: int, edges: List[List[int]]) -> bool:
             in_degrees[end] -= 1
 
 
-test(
-    can_finish,
-    [
-        (2, [[1, 0]], True),
-        (2, [[1, 0], [0, 1]], False),
-    ],
-)
+if __name__ == "__main__":
+    assert can_finish(2, [[1, 0]]) is True
+    assert can_finish(2, [[1, 0], [0, 1]]) is False

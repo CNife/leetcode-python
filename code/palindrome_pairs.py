@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def palindrome_pairs_1(words: List[str]) -> List[List[int]]:
+def palindrome_pairs_1(words: list[str]) -> list[list[int]]:
     res = []
     word_dict = {word: i for i, word in enumerate(words)}
     for i, word in enumerate(words):
@@ -27,12 +22,11 @@ def palindrome_pairs_1(words: List[str]) -> List[List[int]]:
     return res
 
 
-# noinspection SpellCheckingInspection
-test(
-    palindrome_pairs_1,
-    [
-        (["abcd", "dcba", "lls", "s", "sssll"], [[0, 1], [1, 0], [3, 2], [2, 4]]),
-        (["bat", "tab", "cat"], [[0, 1], [1, 0]]),
-    ],
-    map_func=lambda l: (l.sort(), l),
-)
+if __name__ == "__main__":
+    assert palindrome_pairs_1(["abcd", "dcba", "lls", "s", "sssll"]) == [
+        [0, 1],
+        [1, 0],
+        [3, 2],
+        [2, 4],
+    ]
+    assert palindrome_pairs_1(["bat", "tab", "cat"]) == [[0, 1], [1, 0]]

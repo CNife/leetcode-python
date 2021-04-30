@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def convert_bst(root: TreeNode) -> TreeNode:
@@ -15,9 +15,5 @@ def convert_bst(root: TreeNode) -> TreeNode:
     return root
 
 
-test(
-    convert_bst,
-    [
-        (new_tree(5, 2, 13), new_tree(18, 20, 13)),
-    ],
-)
+if __name__ == "__main__":
+    assert convert_bst(new_tree(5, 2, 13)) == new_tree(18, 20, 13)

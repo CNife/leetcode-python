@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import test
+from leetcode import sorted_2d_equals
 
 
-def find_subsequences(nums: List[int]) -> List[List[int]]:
+def find_subsequences(nums: list[int]) -> list[list[int]]:
     results, stack = set(), []
 
     def backtrack(start: int):
@@ -21,22 +19,17 @@ def find_subsequences(nums: List[int]) -> List[List[int]]:
     return [list(res) for res in results]
 
 
-test(
-    find_subsequences,
-    [
-        (
+if __name__ == "__main__":
+    assert sorted_2d_equals(
+        find_subsequences([4, 6, 7, 7]),
+        [
+            [4, 6],
+            [4, 7],
+            [4, 6, 7],
             [4, 6, 7, 7],
-            [
-                [4, 6],
-                [4, 7],
-                [4, 6, 7],
-                [4, 6, 7, 7],
-                [6, 7],
-                [6, 7, 7],
-                [7, 7],
-                [4, 7, 7],
-            ],
-        )
-    ],
-    map_func=lambda l: set(tuple(item) for item in l),
-)
+            [6, 7],
+            [6, 7, 7],
+            [7, 7],
+            [4, 7, 7],
+        ],
+    )

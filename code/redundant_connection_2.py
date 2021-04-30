@@ -1,11 +1,7 @@
-from typing import List
-
-from leetcode import test
-
-Edge = List[int]
+Edge = list[int]
 
 
-def find_redundant_directed_connection(edges: List[Edge]) -> Edge:
+def find_redundant_directed_connection(edges: list[Edge]) -> Edge:
     nodes_count = len(edges)
     uf = UnionFind(nodes_count + 1)
     parent = list(range(nodes_count + 1))
@@ -42,10 +38,8 @@ class UnionFind:
         return self.ancestor[i]
 
 
-test(
-    find_redundant_directed_connection,
-    [
-        ([[1, 2], [1, 3], [2, 3]], [2, 3]),
-        ([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]], [4, 1]),
-    ],
-)
+if __name__ == "__main__":
+    assert find_redundant_directed_connection([[1, 2], [1, 3], [2, 3]]) == [2, 3]
+    assert find_redundant_directed_connection(
+        [[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]]
+    ) == [4, 1]

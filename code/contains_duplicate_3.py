@@ -30,9 +30,8 @@ def contains_nearby_almost_duplicate(nums: [int], k: int, t: int) -> bool:
     return False
 
 
-if __name__ == '__main__':
-    assert contains_nearby_almost_duplicate([2147483640, 2147483641], 1,
-                                            100) is True
+if __name__ == "__main__":
+    assert contains_nearby_almost_duplicate([2147483640, 2147483641], 1, 100) is True
     assert contains_nearby_almost_duplicate([1, 2, 3, 1], 3, 0) is True
     assert contains_nearby_almost_duplicate([1, 0, 1, 1], 1, 2) is True
     assert contains_nearby_almost_duplicate([1, 5, 9, 1, 5, 9], 2, 3) is False

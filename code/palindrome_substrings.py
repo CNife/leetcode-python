@@ -1,6 +1,3 @@
-from leetcode import test
-
-
 def count_substrings(s: str) -> int:
     def count_odd() -> int:
         result = len(s)
@@ -25,10 +22,6 @@ def count_substrings(s: str) -> int:
     return count_odd() + count_even()
 
 
-test(
-    count_substrings,
-    [
-        ("abc", 3),
-        ("aaa", 6),
-    ],
-)
+if __name__ == "__main__":
+    assert count_substrings("abc") == 3
+    assert count_substrings("aaa") == 6

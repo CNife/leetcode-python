@@ -1,13 +1,8 @@
-from typing import List
-
-from leetcode import test
-
-
-def _parse(number_in_string: str) -> List[int]:
+def _parse(number_in_string: str) -> list[int]:
     return [ord(digit) - ord("0") for digit in number_in_string]
 
 
-def _multiply_digit(num_str: List[int], digit: int, offset: int) -> List[int]:
+def _multiply_digit(num_str: list[int], digit: int, offset: int) -> list[int]:
     carriage = 0
     result = [0] * offset
     for num_digit in reversed(num_str):
@@ -46,13 +41,9 @@ def multiply(lhs: str, rhs: str) -> str:
     return "".join(reversed(result))
 
 
-test(
-    multiply,
-    [
-        ("0", "0", "0"),
-        ("0", "100", "0"),
-        ("100", "0", "0"),
-        ("1", "100", "100"),
-        ("123", "456", "56088"),
-    ],
-)
+if __name__ == "__main__":
+    assert multiply("0", "0") == "0"
+    assert multiply("0", "100") == "0"
+    assert multiply("100", "0") == "0"
+    assert multiply("1", "100") == "100"
+    assert multiply("123", "456") == "56088"

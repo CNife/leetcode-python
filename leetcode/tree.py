@@ -8,6 +8,7 @@ class TreeNode:
     """
     二叉树的节点。
     """
+
     val: int
     left: Optional["TreeNode"] = None
     right: Optional["TreeNode"] = None

@@ -1,9 +1,6 @@
-from typing import List
-
-
 class BrowserHistory:
     def __init__(self, homepage: str):
-        self.stack: List[str] = [homepage]
+        self.stack: list[str] = [homepage]
         self.pointer: int = 0
 
     def visit(self, url: str) -> None:
@@ -25,14 +22,15 @@ class BrowserHistory:
         return self.stack[forward_pointer]
 
 
-b = BrowserHistory("leetcode.com")
-b.visit("google.com")
-b.visit("facebook.com")
-b.visit("youtube.com")
-assert b.back(1) == "facebook.com"
-assert b.back(1) == "google.com"
-assert b.forward(1) == "facebook.com"
-b.visit("linkedin.com")
-assert b.forward(2) == "linkedin.com"
-assert b.back(2) == "google.com"
-assert b.back(7) == "leetcode.com"
+if __name__ == "__main__":
+    b = BrowserHistory("leetcode.com")
+    b.visit("google.com")
+    b.visit("facebook.com")
+    b.visit("youtube.com")
+    assert b.back(1) == "facebook.com"
+    assert b.back(1) == "google.com"
+    assert b.forward(1) == "facebook.com"
+    b.visit("linkedin.com")
+    assert b.forward(2) == "linkedin.com"
+    assert b.back(2) == "google.com"
+    assert b.back(7) == "leetcode.com"

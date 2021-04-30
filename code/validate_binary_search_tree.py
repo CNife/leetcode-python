@@ -1,6 +1,6 @@
 from typing import Optional
 
-from leetcode import TreeNode, new_tree, test
+from leetcode import TreeNode, new_tree
 
 
 def is_valid_bst(root: TreeNode) -> bool:
@@ -24,12 +24,8 @@ def is_valid_bst(root: TreeNode) -> bool:
     return is_valid_bst_bounded(root, None, None)
 
 
-test(
-    is_valid_bst,
-    [
-        (new_tree(2, 1, 3), True),
-        (new_tree(5, 1, 4, None, None, 3, 6), False),
-        (new_tree(10, 5, 15, None, None, 6, 20), False),
-        (new_tree(0, None, -1), False),
-    ],
-)
+if __name__ == "__main__":
+    assert is_valid_bst(new_tree(2, 1, 3)) is True
+    assert is_valid_bst(new_tree(5, 1, 4, None, None, 3, 6)) is False
+    assert is_valid_bst(new_tree(10, 5, 15, None, None, 6, 20)) is False
+    assert is_valid_bst(new_tree(0, None, -1)) is False

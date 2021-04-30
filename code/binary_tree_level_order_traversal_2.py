@@ -1,10 +1,9 @@
 from collections import deque
-from typing import List
 
-from leetcode import TreeNode, new_tree, test
+from leetcode import TreeNode, new_tree
 
 
-def level_order_bottom(root: TreeNode) -> List[List[int]]:
+def level_order_bottom(root: TreeNode) -> list[list[int]]:
     if not root:
         return []
 
@@ -25,9 +24,9 @@ def level_order_bottom(root: TreeNode) -> List[List[int]]:
     return result
 
 
-test(
-    level_order_bottom,
-    [
+if __name__ == "__main__":
+    tests = [
         (new_tree(3, 9, 20, None, None, 15, 7), [[15, 7], [9, 20], [3]]),
-    ],
-)
+    ]
+    for tree, want in tests:
+        assert level_order_bottom(tree) == want

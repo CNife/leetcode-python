@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import test
+from leetcode import sorted_2d_equals
 
 
-def combination_sum(candidates: List[int], target: int) -> List[List[int]]:
+def combination_sum(candidates: list[int], target: int) -> list[list[int]]:
     n = len(candidates)
     candidates.sort()
 
@@ -27,18 +25,8 @@ def combination_sum(candidates: List[int], target: int) -> List[List[int]]:
     return result
 
 
-def sll(li):
-    for i in li:
-        i.sort()
-    li.sort()
-    return li
-
-
-test(
-    combination_sum,
-    [
-        ([2, 3, 6, 7], 7, [[7], [2, 2, 3]]),
-        ([2, 3, 5], 8, [[2, 2, 2, 2], [2, 3, 3], [3, 5]]),
-    ],
-    map_func=sll,
-)
+if __name__ == "__main__":
+    assert sorted_2d_equals(combination_sum([2, 3, 6, 7], 7), [[7], [2, 2, 3]])
+    assert sorted_2d_equals(
+        combination_sum([2, 3, 5], 8), [[2, 2, 2, 2], [2, 3, 3], [3, 5]]
+    )

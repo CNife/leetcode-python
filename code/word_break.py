@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def word_break(s: str, word_dict: List[str]) -> bool:
+def word_break(s: str, word_dict: list[str]) -> bool:
     n = len(s)
     words = set(word_dict)
     dp = [True] + [False] * n
@@ -14,8 +9,6 @@ def word_break(s: str, word_dict: List[str]) -> bool:
     return dp[n]
 
 
-# noinspection SpellCheckingInspection
-test(
-    word_break,
-    [("leetcode", ["leet", "code"], True), ("applepenapple", ["apple", "pen"], True)],
-)
+if __name__ == "__main__":
+    assert word_break("leetcode", ["leet", "code"]) is True
+    assert word_break("applepenapple", ["apple", "pen"]) is True

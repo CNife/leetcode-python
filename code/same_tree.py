@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def is_same_tree(lhs: TreeNode, rhs: TreeNode) -> bool:
@@ -14,11 +14,7 @@ def is_same_tree(lhs: TreeNode, rhs: TreeNode) -> bool:
         )
 
 
-test(
-    is_same_tree,
-    [
-        (new_tree(1, 2, 3), new_tree(1, 2, 3), True),
-        (new_tree(1, None, 2), new_tree(1, 2), False),
-        (new_tree(1, 2, 1), new_tree(1, 1, 2), False),
-    ],
-)
+if __name__ == "__main__":
+    assert is_same_tree(new_tree(1, 2, 3), new_tree(1, 2, 3)) is True
+    assert is_same_tree(new_tree(1, None, 2), new_tree(1, 2)) is False
+    assert is_same_tree(new_tree(1, 2, 1), new_tree(1, 1, 2)) is False

@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def min_camara_cover(root: TreeNode) -> int:
@@ -21,10 +21,10 @@ def min_camara_cover(root: TreeNode) -> int:
     return result
 
 
-test(
-    min_camara_cover,
-    [
+if __name__ == "__main__":
+    tests = [
         (new_tree(0, 0, None, 0, 0), 1),
         (new_tree(0, 0, None, 0, None, 0, None, None, 0), 2),
-    ],
-)
+    ]
+    for tree, want in tests:
+        assert min_camara_cover(tree) == want

@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree, inorder_traverse
+from leetcode import TreeNode, new_tree, inorder_traverse
 
 
 def insert_into_bst(root: TreeNode, val: int) -> TreeNode:
@@ -21,8 +21,13 @@ def insert_into_bst(root: TreeNode, val: int) -> TreeNode:
     return root
 
 
-test(
-    insert_into_bst,
-    [(new_tree(4, 2, 7, 1, 3), 5, [1, 2, 3, 4, 5, 7]), (new_tree(), 1, [1])],
-    equals_func=lambda actual, expect: inorder_traverse(actual) == expect,
-)
+if __name__ == "__main__":
+    assert inorder_traverse(insert_into_bst(new_tree(4, 2, 7, 1, 3), 5)) == [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+    ]
+    assert inorder_traverse(insert_into_bst(new_tree(), 1)) == [1]

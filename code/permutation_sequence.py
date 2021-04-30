@@ -1,7 +1,5 @@
 import math
 
-from leetcode import test
-
 
 def get_permutation(n: int, k: int) -> str:
     seq = [chr(ord("1") + i) for i in range(n)]
@@ -20,10 +18,6 @@ def get_permutation(n: int, k: int) -> str:
     return "".join(res)
 
 
-test(
-    get_permutation,
-    [
-        (3, 3, "213"),
-        (4, 9, "2314"),
-    ],
-)
+if __name__ == "__main__":
+    assert get_permutation(3, 3) == "213"
+    assert get_permutation(4, 9) == "2314"

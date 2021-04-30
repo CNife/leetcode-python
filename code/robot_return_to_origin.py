@@ -1,6 +1,3 @@
-from leetcode import test
-
-
 def judge_circle(moves: str) -> bool:
     x, y = 0, 0
     for move in moves:
@@ -15,10 +12,6 @@ def judge_circle(moves: str) -> bool:
     return x == 0 and y == 0
 
 
-test(
-    judge_circle,
-    [
-        ("UD", True),
-        ("LL", False),
-    ],
-)
+if __name__ == "__main__":
+    assert judge_circle("UD") is True
+    assert judge_circle("LL") is False

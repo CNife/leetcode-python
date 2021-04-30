@@ -1,6 +1,3 @@
-from leetcode import test
-
-
 def longest_valid_parentheses(s: str) -> int:
     stack = [-1]
     result = 0
@@ -17,10 +14,6 @@ def longest_valid_parentheses(s: str) -> int:
     return result
 
 
-test(
-    longest_valid_parentheses,
-    [
-        ("(()", 2),
-        (")()())", 4),
-    ],
-)
+if __name__ == "__main__":
+    assert longest_valid_parentheses("(()") == 2
+    assert longest_valid_parentheses(")()())") == 4

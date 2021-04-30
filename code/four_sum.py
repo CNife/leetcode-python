@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import test, sorted_2d_list
+from leetcode import sorted_2d_equals
 
 
-def four_sum(nums: List[int], target: int) -> List[List[int]]:
+def four_sum(nums: list[int], target: int) -> list[list[int]]:
     if len(nums) < 4:
         return []
 
@@ -25,8 +23,11 @@ def four_sum(nums: List[int], target: int) -> List[List[int]]:
     return [list(item) for item in result]
 
 
-test(
-    four_sum,
-    [([1, 0, -1, 0, -2, 2], 0, [[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]])],
-    map_func=sorted_2d_list,
-)
+if __name__ == "__main__":
+    assert sorted_2d_equals(
+        four_sum(
+            [1, 0, -1, 0, -2, 2],
+            0,
+        ),
+        [[-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2]],
+    )

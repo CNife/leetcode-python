@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def restore_ip_address(src: str) -> List[str]:
+def restore_ip_address(src: str) -> list[str]:
     segments, results = [], []
 
     def is_valid_segment(segment: str) -> bool:
@@ -41,8 +36,5 @@ def restore_ip_address(src: str) -> List[str]:
     return results
 
 
-test(
-    restore_ip_address,
-    [("25525511135", ["255.255.11.135", "255.255.111.35"])],
-    map_func=lambda l: (l.sort(), l),
-)
+if __name__ == "__main__":
+    assert restore_ip_address("25525511135") == ["255.255.11.135", "255.255.111.35"]

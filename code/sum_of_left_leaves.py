@@ -1,4 +1,4 @@
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def sum_of_left_leaves(root: TreeNode) -> int:
@@ -13,9 +13,5 @@ def sum_of_left_leaves(root: TreeNode) -> int:
     return helper(root, False)
 
 
-test(
-    sum_of_left_leaves,
-    [
-        (new_tree(3, 9, 20, None, None, 15, 7), 24),
-    ],
-)
+if __name__ == "__main__":
+    assert sum_of_left_leaves(new_tree(3, 9, 20, None, None, 15, 7)) == 24

@@ -1,14 +1,12 @@
 import functools
-from typing import List
-
-from leetcode import test
+from leetcode.test import sorted_equals
 
 
-def word_break(s: str, words: List[str]) -> List[str]:
+def word_break(s: str, words: list[str]) -> list[str]:
     words = set(words)
 
     @functools.lru_cache(None)
-    def dfs(start: int) -> List[str]:
+    def dfs(start: int) -> list[str]:
         nonlocal s, words
         results = []
         if start == len(s):
@@ -27,21 +25,20 @@ def word_break(s: str, words: List[str]) -> List[str]:
     return dfs(0)
 
 
-# noinspection SpellCheckingInspection
-test(
-    word_break,
-    [
-        (
-            "catsanddog",
-            ["cat", "cats", "and", "sand", "dog"],
-            ["cats and dog", "cat sand dog"],
+if __name__ == "__main__":
+    assert sorted_equals(
+        word_break("catsanddog", ["cat", "cats", "and", "sand", "dog"]),
+        [
+            "cats and dog",
+            "cat sand dog",
+        ],
+    )
+    assert sorted_equals(
+        word_break(
+            "pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"]
         ),
-        (
-            "pineapplepenapple",
-            ["apple", "pen", "applepen", "pine", "pineapple"],
-            ["pine apple pen apple", "pineapple pen apple", "pine applepen apple"],
-        ),
-        ("catsandog", ["cats", "dog", "sand", "and", "cat"], []),
-    ],
-    map_func=lambda l: set(l),
-)
+        ["pine apple pen apple", "pineapple pen apple", "pine applepen apple"],
+    )
+    assert sorted_equals(
+        word_break("catsandog", ["cats", "dog", "sand", "and", "cat"]), []
+    )

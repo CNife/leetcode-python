@@ -1,9 +1,7 @@
-from typing import List, Tuple
-
-from leetcode import test, sorted_list
+from leetcode import sorted_equals
 
 
-def solve_n_queens(n: int) -> List[List[str]]:
+def solve_n_queens(n: int) -> list[list[str]]:
     solver = NQueensSolver(n)
     solver.backtrack(0)
     return solver.results
@@ -12,11 +10,11 @@ def solve_n_queens(n: int) -> List[List[str]]:
 class NQueensSolver:
     def __init__(self, n: int):
         self.n: int = n
-        self.queens: List[Tuple[int, int]] = []
-        self.columns: List[bool] = [False] * n
-        self.diagonals: List[bool] = [False] * (2 * n - 1)
-        self.rev_diagonals: List[bool] = [False] * (2 * n - 1)
-        self.results: List[List[str]] = []
+        self.queens: list[tuple[int, int]] = []
+        self.columns: list[bool] = [False] * n
+        self.diagonals: list[bool] = [False] * (2 * n - 1)
+        self.rev_diagonals: list[bool] = [False] * (2 * n - 1)
+        self.results: list[list[str]] = []
 
     def backtrack(self, r: int) -> None:
         for c in range(self.n):
@@ -64,10 +62,8 @@ class NQueensSolver:
             return c - r + self.n - 1
 
 
-test(
-    solve_n_queens,
-    [
-        (4, [[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]]),
-    ],
-    map_func=sorted_list,
-)
+if __name__ == "__main__":
+    assert sorted_equals(
+        solve_n_queens(4),
+        [[".Q..", "...Q", "Q...", "..Q."], ["..Q.", "Q...", "...Q", ".Q.."]],
+    )

@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def merge(a: List[int], m: int, b: List[int], n: int) -> None:
+def merge(a: list[int], m: int, b: list[int], n: int) -> None:
     i, j = m - 1, n - 1
     for k in range(m + n - 1, -1, -1):
         lhs = a[i] if i >= 0 else float("-Infinity")
@@ -16,8 +11,8 @@ def merge(a: List[int], m: int, b: List[int], n: int) -> None:
             j -= 1
 
 
-test(
-    merge,
-    [([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6])],
-    actual_func=lambda t, _: t[0],
-)
+if __name__ == "__main__":
+    tests = [([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6])]
+    for a, m, b, n, want in tests:
+        merge(a, m, b, n)
+        assert a == want

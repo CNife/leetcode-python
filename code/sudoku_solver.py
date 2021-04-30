@@ -1,9 +1,4 @@
-from typing import List
-
-from leetcode import test
-
-
-def solve_sudoku(board: List[List[str]]) -> None:
+def solve_sudoku(board: list[list[str]]) -> None:
     if not (board and len(board) == 9 and len(board[0]) == 9):
         return
 
@@ -41,9 +36,8 @@ def solve_sudoku(board: List[List[str]]) -> None:
     solve(0)
 
 
-test(
-    solve_sudoku,
-    [
+if __name__ == "__main__":
+    tests = [
         (
             [
                 ["5", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -68,6 +62,7 @@ test(
                 ["3", "4", "5", "2", "8", "6", "1", "7", "9"],
             ],
         ),
-    ],
-    actual_func=lambda t, _: t[0],
-)
+    ]
+    for board, want in tests:
+        solve_sudoku(board)
+        assert board == want

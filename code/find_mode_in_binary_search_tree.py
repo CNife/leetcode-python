@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
-def find_mode(root: TreeNode) -> List[int]:
+def find_mode(root: TreeNode) -> list[int]:
     result, values, prev_value, count, max_count = [], [], 0, 0, 0
 
     def update() -> None:
@@ -31,4 +29,6 @@ def find_mode(root: TreeNode) -> List[int]:
     return result
 
 
-test(find_mode, [(new_tree(1, None, 2, 2), [2]), (new_tree(0), [0])])
+if __name__ == "__main__":
+    assert find_mode(new_tree(1, None, 2, 2)) == [2]
+    assert find_mode(new_tree(0)) == [0]

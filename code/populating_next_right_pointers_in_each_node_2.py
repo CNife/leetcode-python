@@ -44,18 +44,19 @@ def connect(root: Node) -> Optional[Node]:
     return root
 
 
-tree = Node(1)
-tree.left = Node(2)
-tree.right = Node(3)
-tree.left.left = Node(4)
-tree.left.right = Node(5)
-tree.right.right = Node(7)
+if __name__ == "__main__":
+    tree = Node(1)
+    tree.left = Node(2)
+    tree.right = Node(3)
+    tree.left.left = Node(4)
+    tree.left.right = Node(5)
+    tree.right.right = Node(7)
 
-tree = connect(tree)
+    tree = connect(tree)
 
-assert tree.next is None
-assert tree.left.next is tree.right
-assert tree.right.next is None
-assert tree.left.left.next is tree.left.right
-assert tree.left.right.next is tree.right.right
-assert tree.right.right.next is None
+    assert tree.next is None
+    assert tree.left.next is tree.right
+    assert tree.right.next is None
+    assert tree.left.left.next is tree.left.right
+    assert tree.left.right.next is tree.right.right
+    assert tree.right.right.next is None

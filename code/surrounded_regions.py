@@ -1,11 +1,7 @@
-from typing import List
-
-from leetcode import test
-
 diff = [(0, -1), (0, 1), (-1, 0), (1, 0)]
 
 
-def solve(board: List[List[str]]) -> None:
+def solve(board: list[list[str]]) -> None:
     if not board or not board[0]:
         return
 
@@ -46,9 +42,8 @@ def solve(board: List[List[str]]) -> None:
                 board[i][j] = "O"
 
 
-test(
-    solve,
-    [
+if __name__ == "__main__":
+    tests = [
         (
             [
                 [
@@ -104,6 +99,7 @@ test(
             ],
         ),
         ([], []),
-    ],
-    actual_func=lambda t, _: t[0],
-)
+    ]
+    for board, want in tests:
+        solve(board)
+        assert board == want

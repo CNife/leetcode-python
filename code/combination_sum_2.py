@@ -1,9 +1,7 @@
-from typing import List
-
-from leetcode import test, sorted_list
+from leetcode import sorted_2d_equals
 
 
-def combinations(candidates: List[int], target: int) -> List[List[int]]:
+def combinations(candidates: list[int], target: int) -> list[list[int]]:
     candidates.sort()
     n = len(candidates)
     result, stack = set(), []
@@ -26,11 +24,8 @@ def combinations(candidates: List[int], target: int) -> List[List[int]]:
     return [list(t) for t in result]
 
 
-test(
-    combinations,
-    [
-        ([10, 1, 2, 7, 6, 1, 5], 8, [[1, 7], [1, 2, 5], [2, 6], [1, 1, 6]]),
-        ([2, 5, 2, 1, 2], 5, [[1, 2, 2], [5]]),
-    ],
-    map_func=sorted_list,
-)
+if __name__ == "__main__":
+    assert sorted_2d_equals(
+        combinations([10, 1, 2, 7, 6, 1, 5], 8), [[1, 7], [1, 2, 5], [2, 6], [1, 1, 6]]
+    )
+    assert sorted_2d_equals(combinations([2, 5, 2, 1, 2], 5), [[1, 2, 2], [5]])

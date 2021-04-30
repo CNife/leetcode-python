@@ -1,7 +1,7 @@
 from collections import deque
 from typing import Optional
 
-from leetcode import TreeNode, test, new_tree
+from leetcode import TreeNode, new_tree
 
 
 def serialize(root: TreeNode) -> str:
@@ -41,10 +41,6 @@ def deserialize(data: str) -> Optional[TreeNode]:
     return root
 
 
-test(deserialize, [("1,2,3,null,null,4,5", new_tree(1, 2, 3, None, None, 4, 5))])
-test(
-    serialize,
-    [
-        (new_tree(1, 2, 3, None, None, 4, 5), "1,2,3,null,null,4,5"),
-    ],
-)
+if __name__ == "__main__":
+    assert deserialize("1,2,3,null,null,4,5") == new_tree(1, 2, 3, None, None, 4, 5)
+    assert serialize(new_tree(1, 2, 3, None, None, 4, 5)) == "1,2,3,null,null,4,5"
