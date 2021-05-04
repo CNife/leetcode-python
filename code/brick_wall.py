@@ -19,7 +19,12 @@ def least_bricks(wall: list[list[int]]) -> int:
     return result
 
 
-if __name__ == '__main__':
-    assert least_bricks([[1, 2, 2, 1], [3, 1, 2], [1, 3, 2], [2, 4], [3, 1, 2],
-                         [1, 3, 1, 1]]) == 2
+if __name__ == "__main__":
+    assert (
+            least_bricks(
+                [[1, 2, 2, 1], [3, 1, 2], [1, 3, 2], [2, 4], [3, 1, 2],
+                 [1, 3, 1, 1]]
+            )
+            == 2
+    )
     assert least_bricks([[1], [1], [1]]) == 3

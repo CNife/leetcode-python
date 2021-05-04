@@ -1,4 +1,4 @@
-INT32_MIN = -2 ** 31
+INT32_MIN = -(2 ** 31)
 INT32_MAX = 2 ** 31 - 1
 
 
@@ -23,7 +23,7 @@ def reverse(x: int) -> int:
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert reverse(123) == 321
     assert reverse(-123) == -321
     assert reverse(120) == 21
