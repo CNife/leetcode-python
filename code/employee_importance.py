@@ -28,13 +28,13 @@ def get_importance(employees: list[Employee], person_id: int) -> int:
 
 if __name__ == "__main__":
     assert (
-            get_importance(
-                [
-                    Employee(1, 5, [2, 3]),
-                    Employee(2, 3, []),
-                    Employee(3, 3, []),
-                ],
-                1,
-            )
-            == 11
+        get_importance(
+            [
+                Employee(1, 5, [2, 3]),
+                Employee(2, 3, []),
+                Employee(3, 3, []),
+            ],
+            1,
+        )
+        == 11
     )
