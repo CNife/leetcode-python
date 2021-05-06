@@ -18,6 +18,6 @@ def delete_and_earn(nums: list[int]) -> int:
     return dp[max_num]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     assert delete_and_earn([3, 4, 2]) == 6
     assert delete_and_earn([2, 2, 3, 3, 3, 4]) == 9
