@@ -11,7 +11,7 @@ Get-ChildItem $PSScriptRoot\code\*.py | ForEach-Object -Parallel {
     }
 }
 
-python -m black $PSScriptRoot\code $PSScriptRoot\leetcode
+python -m black .
 if ($LASTEXITCODE -ne 0) {
     throw "format failed"
 }
