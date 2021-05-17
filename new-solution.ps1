@@ -20,4 +20,4 @@ if ($Title.Length -lt 1) {
 
 $SolutionPath = "$PSScriptRoot\code\$Title.py"
 Write-Output "`n" | Out-File $SolutionPath
-pycharm $SolutionPath
+pycharm $PSScriptRoot $SolutionPath
